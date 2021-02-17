@@ -1,5 +1,7 @@
 package com.luxoft.springcore.objects;
 
+import com.luxoft.springcore.aspects.Travel;
+
 public class UsualPerson implements Person {
     private int id;
 
@@ -64,10 +66,9 @@ public class UsualPerson implements Person {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
+
     public void travel(City source, City destination) {
-    	
+        System.out.println("travel");
     }
 
     public String toString() {
@@ -80,15 +81,21 @@ public class UsualPerson implements Person {
     }
 
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (! (o instanceof UsualPerson))
+            return false;
 
         UsualPerson person = (UsualPerson) o;
 
-        if (age != person.age) return false;
-        if (isProgrammer != person.isProgrammer) return false;
-        if (city != null ? !city.equals(person.city) : person.city != null) return false;
-        if (name != null ? !name.equals(person.name) : person.name != null) return false;
+        if (age != person.getAge()) return false;
+        if (isProgrammer != person.isProgrammer()) return false;
+        if (city != null ? !city.equals(person.getCity()) : person.getCity() != null) return false;
+        if (name != null ? !name.equals(person.getName()) : person.getName() != null) return false;
 
         return true;
     }

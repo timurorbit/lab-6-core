@@ -1,5 +1,11 @@
 package com.luxoft.springcore.objects;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Service;
+
+@Service("operatorsBean")
 public class Operators {
 	
 	private boolean ageComparisonTest;
@@ -9,6 +15,7 @@ public class Operators {
 		return ageComparisonTest;
 	}
 
+	@Value("true")
 	public void setAgeComparisonTest(boolean ageComparisonTest) {
 		this.ageComparisonTest = ageComparisonTest;
 	}
@@ -17,6 +24,7 @@ public class Operators {
 		return distanceComparisonTest;
 	}
 
+	@Value("true")
 	public void setDistanceComparisonTest(boolean distanceComparisonTest) {
 		this.distanceComparisonTest = distanceComparisonTest;
 	}
